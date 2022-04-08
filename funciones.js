@@ -6,3 +6,36 @@ const getRandomInt = (min, max) => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
+
+const pizarra = document.querySelector('#division3');
+
+const numeroDeEstudiantes = getRandomInt(6, 25); //6
+
+pizarra.textContent = numeroDeEstudiantes;
+
+const notas = [];
+for (let index = 0; index < numeroDeEstudiantes; index++) {
+    notas.push(getRandomInt(45, 100));
+}
+
+pizarra.textContent += `***${notas}`;
+
+
+const sumatoria = (listaNotas) => {
+    let sumaTotal = 0;
+    for (let index = 0; index < listaNotas.length; index++) {
+        sumaTotal += listaNotas[index];
+    }
+    return sumaTotal;
+}
+
+const promedio = (listaNotas) => {
+    return sumatoria(listaNotas) / listaNotas.length;
+}
+
+pizarra.textContent += `***El promedio es: ${Math.round(promedio(notas).toFixed(2))}`;
+
+//Ejercicio, crear una funcion que me cuente las notas mayores o iguales a 70
+const cuentaLosQuePasaron = () => {
+
+}
